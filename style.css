@@ -1,0 +1,25 @@
+.container {
+   margin: 0 auto;
+   padding: 30px 30px;
+   width: 60%;
+   background-color: black;
+}
+.out {
+   font-size: 1rem;
+   font-family: monospace;
+   color: chartreuse;
+}
+
+.out span {
+   background: lime;
+   animation: blinking 0.5s step-start infinite;
+}
+
+@keyframes blinking {
+   50% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+   }
+}
