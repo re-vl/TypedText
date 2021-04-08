@@ -2,12 +2,13 @@
    margin: 0 auto;
    padding: 30px 30px;
    width: 60%;
+   height: 20rem;
    background-color: black;
 }
 .out {
    font-size: 1rem;
    font-family: monospace;
-   color: chartreuse;
+   color: lime;
 }
 
 .out span {

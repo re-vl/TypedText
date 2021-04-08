@@ -1,38 +1,36 @@
-const t = [
-   "Wake up, Neo...\n",
-   "The Matrix has you...\n",
-   "Follow the white rabbit...\n",
-   "               \n",
-   "Knock knock, Neo.",
-];
+const t = ["Wake up, Neo...", "The Matrix has you..."];
 
 function typeText() {
    let line = 0,
       count = 0,
+      direct = 1,
+      dalay = 350,
       out = "",
       htmlOut = document.querySelector(".out");
 
    function typeLine() {
       //рисуем строку
-      let interval = setTimeout(() => {
-         out += t[line][count];
+      setTimeout(() => {
+         out = t[line].slice(0, count);
          htmlOut.innerHTML = out + "<span>|</span>";
-         count++;
-         //проверки
-         //не закончилась ли строка
+         count += direct;
+
          if (count >= t[line].length) {
-            count = 0;
-            line++;
-            if (line == t.length) {
-               clearTimeout(interval); //остановка таймаут
-               htmlOut.innerHTML = out; //убираем верт черту
-               return true;
+            direct = -1;
+            dalay = 50;
+         }
+         if (count == 0 && direct == -1) {
+            direct = 1;
+            dalay = 350;
+            if (line == 0) {
+               line = 1;
+            } else if (line == 1) {
+               line = 0;
             }
          }
          typeLine();
-      }, getRandomInt(getRandomInt(350 * 3.0)));
+      }, getRandomInt(getRandomInt(dalay * 3.0)));
    }
-
    typeLine();
 }
 
